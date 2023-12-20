@@ -1,0 +1,13 @@
+extends base.pug
+
+block content
+	{{super()}}
+	p Содержимое главной страницы
+	hr
+	h2 Список статей
+	ul.list-posts
+		for p in posts
+			li
+				p.title
+					a(href="{{ url_for('showPost', id_post=p.id)}}") {{p.title}}
+				p.annonce {{ p.text[:50] }}

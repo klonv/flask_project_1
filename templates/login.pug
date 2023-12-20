@@ -1,0 +1,13 @@
+extends base.pug
+
+block content
+  {{super()}}
+  form.form-contact(action="/login" method="post")
+    p
+      label Имя:
+      input(type="text", name="username" value="" requied)
+    p
+      label Пароль:
+      input(type="password" name="psw" value="" requied)
+    p
+      input(type="submit" value="Войти")

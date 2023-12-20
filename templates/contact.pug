@@ -1,0 +1,20 @@
+extends base.pug
+
+block content
+  {{ super() }}
+  for cat, msg in get_flashed_messages(True)
+    .flash(class='{{cat}}') {{msg}}
+    
+  form.form-contact(action="/contact" method="post")
+    p
+      label Имя
+      input(type="text" name="username" value="" requied)
+    p
+      label Email
+      input(type="text" name="email" value="" requied)
+    p
+      label Сообщение:
+    p
+      textarea(name="message", cols="40", rows="7")
+    p
+      input(type="submit" value="Отправить")

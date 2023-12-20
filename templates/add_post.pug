@@ -1,0 +1,16 @@
+extends base.pug
+
+block content
+  {{ super() }}
+  for cat, msg in get_flashed_messages(True)
+    .flash(class='{{cat}}') {{msg}}
+  form.form-contact(action="{{ url_for('addPost') }}" method="post")
+    p 
+      label Название статьи
+      input(type="text" name="name" value="" requied)
+    p 
+      label Текст статьи
+    p 
+      textarea(name="post", cols="40", rows="7")
+    p 
+      input(type="submit" value="Добавить")
